@@ -15,6 +15,8 @@ const launch = {
 
 launches.set(launch.flightNumber, launch)
 
+const existsLaunchWithId = id => launches.has(id)
+
 const getAllLaunches = () => Array.from(launches.values())
 
 const addNewLaunch = launch => {
@@ -27,8 +29,18 @@ const addNewLaunch = launch => {
     }))
 }
 
+const abortLaunch = id => {
+    const aborted = launches.get(id)
+
+    aborted.upcoming = false
+    aborted.success = false
+
+    return aborted
+}
+
 module.exports = {
+    existsLaunchWithId,
     getAllLaunches,
     addNewLaunch,
-    launches
+    abortLaunch
 }
