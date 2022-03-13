@@ -32,7 +32,10 @@ function loadPlanetsData() {
     })
 }
 
+const getAllPlanets = () => habitablePlanets
+
 module.exports = {
     loadPlanetsData,
-    planets: habitablePlanets
+    planets: habitablePlanets,
+    getAllPlanets
 }
